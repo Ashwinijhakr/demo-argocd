@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-application-argopro
+  namespace: argocd        # Argo CD Application CRD usually lives in argocd namespace
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Ashwinijhakr/kubernetes
+    targetRevision: main       # branch or tag (HEAD means default branch)
+    path: .          # folder path inside repo where your YAMLs exist
+
+  destination:
+    server: https://kubernetes.default.svc   # In-cluster Kubernetes API
+    namespace: default  
+  syncPolicy:
+    automated:
+      prune: true            # Automatically delete resources that are no longer defined in Git
+      selfHeal: true        # Automatically sync if out of sync
+  
