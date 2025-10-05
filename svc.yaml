@@ -21,6 +21,6 @@ spec:
   #   nodePort: 30007
   selector:
     env: dev
-  type: ClusterIP
+  type: LoadBalancer
 
  
