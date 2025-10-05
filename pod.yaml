@@ -33,7 +33,7 @@ spec:
 apiVersion: v1
 kind : Pod
 metadata: 
-  name: node2
+  name: node23
   labels:
     env: dev  
 spec:
